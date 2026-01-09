@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="it" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simone — Contatti</title>
+    <meta name="description" content="Contatta Simone, Junior Web Developer." />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-expand-lg bg-glass border-bottom border-light border-opacity-10 sticky-top"
+    >
+      <div class="container py-2">
+        <a
+          class="navbar-brand d-flex align-items-center gap-2 fw-bold"
+          href="./index.html"
+        >
+          <span class="brand-mark">S</span><span>Simone</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMain"
+          aria-controls="navMain"
+          aria-expanded="false"
+          aria-label="Apri menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./projects.html">Progetti</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./contact.html">Contatti</a>
+            </li>
+            <li class="nav-item ms-lg-2">
+              <a class="btn btn-outline-light btn-sm" href="./projects.html"
+                >Progetti</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="py-5 flex-grow-1">
+      <div class="container">
+        <div class="mb-4">
+          <h1 class="fw-bold mb-2">Contatti</h1>
+          <p class="text-secondary mb-0">
+            Se vuoi parlarmi di un’opportunità, scrivimi qui sotto.
+          </p>
+        </div>
+
+        <div class="row g-3 align-items-start">
+          <div class="col-lg-7">
+            <section
+              class="card bg-panel border border-light border-opacity-10"
+            >
+              <div class="card-body p-4">
+                <h2 class="h5 fw-bold mb-3">Scrivimi</h2>
+
+                <form action="#" method="post" class="vstack gap-3">
+                  <div>
+                    <label class="form-label text-secondary" for="name"
+                      >Nome</label
+                    >
+                    <input
+                      class="form-control"
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="Il tuo nome"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label class="form-label text-secondary" for="email"
+                      >Email</label
+                    >
+                    <input
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="nome@azienda.com"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label class="form-label text-secondary" for="msg"
+                      >Messaggio</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="msg"
+                      name="msg"
+                      rows="6"
+                      placeholder="Ciao Simone, ti contatto per..."
+                      required
+                    ></textarea>
+                  </div>
+
+                  <button
+                    class="btn btn-primary btn-lg align-self-start"
+                    type="submit"
+                  >
+                    Invia
+                  </button>
+                </form>
+              </div>
+            </section>
+          </div>
+
+          <div class="col-lg-5">
+            <aside class="card bg-panel border border-light border-opacity-10">
+              <div class="card-body p-4">
+                <h2 class="h5 fw-bold mb-2">Link rapidi</h2>
+
+                <hr class="border-light border-opacity-10 my-4" />
+
+                <div class="d-grid gap-2">
+                  <a
+                    class="btn btn-outline-light"
+                    target="_blank"
+                    href="https://github.com/simonesbds"
+                    >GitHub</a
+                  >
+                  <a class="btn btn-outline-light" href="#">LinkedIn</a>
+                  <button
+                    class="btn btn-outline-light"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#cvModal"
+                  >
+                    CV (PDF)
+                  </button>
+                </div>
+
+                <hr class="border-light border-opacity-10 my-4" />
+
+                <div class="fw-bold">Disponibilità</div>
+                <div class="text-secondary">
+                  Junior • Remote/Hybrid • Full Time/Part Time • Italia/UE
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="py-4 border-top border-light border-opacity-10">
+      <div class="container d-flex flex-wrap justify-content-between gap-3">
+        <div class="text-secondary">
+          © <span id="year">2025</span> Simone — Portfolio
+        </div>
+        <div class="d-flex gap-3">
+          <a class="link-soft" href="./index.html">Home</a>
+          <a class="link-soft" href="./projects.html">Progetti</a>
+        </div>
+      </div>
+    </footer>
+
+    <div
+      class="modal fade"
+      id="cvModal"
+      tabindex="-1"
+      aria-labelledby="cvModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
+      >
+        <div
+          class="modal-content bg-panel border border-light border-opacity-10"
+        >
+          <div
+            class="modal-header border-bottom border-light border-opacity-10"
+          >
+            <h5 class="modal-title fw-bold" id="cvModalLabel">
+              Curriculum Vitae
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Chiudi"
+            ></button>
+          </div>
+
+          <div class="modal-body p-0">
+            <iframe
+              src="https://drive.google.com/file/d/1gKrH09wGnL_L7KwL7b-ktuUSuMhqhQsl/preview"
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <div class="modal-footer border-top border-light border-opacity-10">
+            <a
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://drive.google.com/uc?export=download&id=1gKrH09wGnL_L7KwL7b-ktuUSuMhqhQsl"
+            >
+              Scarica CV
+            </a>
+
+            <button
+              type="button"
+              class="btn btn-outline-light"
+              data-bs-dismiss="modal"
+            >
+              Chiudi
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "task-manager",
+    "title": "Task Manager",
+    "description": "App per la gestione di task con CRUD, filtri e salvataggio in localStorage.",
+    "category": "js",
+    "tags": ["CRUD", "localStorage", "UX"],
+    "demoUrl": "http://127.0.0.1:5500/projects.html",
+    "repoUrl": "http://127.0.0.1:5500/projects.html"
+  },
+  {
+    "id": "quote-machine",
+    "title": "Random Quote Machine",
+    "description": "Applicazione che recupera citazioni casuali da un’API esterna, con gestione di stati di caricamento ed errore.",
+    "category": "api",
+    "tags": ["fetch", "API", "async/await", "DOM"],
+    "demoUrl": "http://127.0.0.1:5500/projects.html",
+    "repoUrl": "http://127.0.0.1:5500/projects.html"
+  }
+]
