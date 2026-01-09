@@ -76,7 +76,13 @@
               <div class="card-body p-4">
                 <h2 class="h5 fw-bold mb-3">Scrivimi</h2>
 
-                <form action="#" method="post" class="vstack gap-3">
+                <form
+                  action="https://formspree.io/f/mlgdqqjv"
+                  method="POST"
+                  class="vstack gap-3 needs-validation"
+                  novalidate
+                >
+                  <input type="text" name="_gotcha" style="display: none" />
                   <div>
                     <label class="form-label text-secondary" for="name"
                       >Nome</label
@@ -113,7 +119,7 @@
                       class="form-control"
                       id="msg"
                       name="msg"
-                      rows="6"
+                      rows="5"
                       placeholder="Ciao Simone, ti contatto per..."
                       required
                     ></textarea>
