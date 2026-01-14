@@ -5,8 +5,8 @@
     "description": "App per la gestione di task con CRUD, filtri e salvataggio in localStorage.",
     "category": "js",
     "tags": ["CRUD", "localStorage", "UX"],
-    "demoUrl": "http://127.0.0.1:5500/projects.html",
-    "repoUrl": "http://127.0.0.1:5500/projects.html"
+    "demoUrl": "https://simonesbds.github.io/task-manager/",
+    "repoUrl": "https://github.com/simonesbds/task-manager"
   },
   {
     "id": "quote-machine",
