@@ -1,10 +1,15 @@
 [
   {
     "id": "task-manager",
-    "title": "Task Manager",
-    "description": "A digital desk for your to-dos: create, edit, filter and search tasks, with priorities, persistent dark mode and data saved in localStorage.",
+    "title": "Desk — Task Manager",
+    "description": "A task manager inspired by modern productivity apps: tasks grouped by priority, live counters, a progress bar, keyboard shortcuts and a light/dark theme.",
     "category": "js",
-    "tags": ["Vanilla JS", "CRUD", "localStorage", "Bootstrap 5"],
+    "tags": [
+      "Vanilla JS",
+      "localStorage",
+      "Keyboard shortcuts",
+      "Dark mode"
+    ],
     "image": "./assets/img/projects/task-manager.webp",
     "featured": true,
     "demoUrl": "https://simonesbds.github.io/task-manager/",
@@ -15,7 +20,12 @@
     "title": "Random Quote Machine",
     "description": "A minimal app that fetches random advice from a public API, with explicit loading, error and success states and a letter-by-letter animation.",
     "category": "api",
-    "tags": ["Fetch API", "async/await", "UI states", "CSS animations"],
+    "tags": [
+      "Fetch API",
+      "async/await",
+      "UI states",
+      "CSS animations"
+    ],
     "image": "./assets/img/projects/quote-machine.webp",
     "featured": true,
     "demoUrl": "https://simonesbds.github.io/quote-machine/",
