@@ -31,6 +31,7 @@ https://simonesbds.github.io/my-portfolio/
 │ ├── main.js           # scroll animations, navbar, footer year
 │ └── projects.js       # loads, filters and renders projects
 ├── assets/
+│ ├── favicon/          # favicon + Apple touch icon
 │ └── img/projects/     # project screenshots (WebP)
 ├── data/
 │ └── projects.json
