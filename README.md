@@ -1,8 +1,9 @@
 # Simone — Junior Web Developer Portfolio
-Repository del mio portfolio personale
-Il progetto raccoglie una selezione di applicazioni front-end reali, progettate per mostrare competenze tecniche, attenzione alla UI/UX e cura dei dettagli.
 
-## **Live website**:
+My personal portfolio repository.
+It brings together a selection of real front-end applications, designed to showcase technical skills, attention to UI/UX and care for detail.
+
+## Live website
 https://simonesbds.github.io/my-portfolio/
 
 ---
@@ -13,56 +14,67 @@ https://simonesbds.github.io/my-portfolio/
 - **CSS3**
 - **Bootstrap 5**
 - **JavaScript (ES6+)**
-- JSON (dati dinamici)
+- JSON (dynamic data)
 - Git & GitHub Pages
 
 ---
 
-## **Struttura del progetto**
+## Project Structure
 ```
-/ 
-├── index.html 
-├── projects.html 
-├── contact.html 
-├── css/ 
-│ ├── global.css 
-│ └── home.css 
-├── js/  
-│ ├── home.js 
-│ └── projects.js 
+/
+├── index.html
+├── projects.html
+├── contact.html
+├── css/
+│ ├── global.css
+│ ├── home.css
+│ ├── projects.css
+│ └── contact.css
+├── js/
+│ ├── home.js
+│ └── projects.js
 ├── data/
-│ └── projects.json 
+│ └── projects.json
+├── LICENSE
+└── README.md
 ```
----
-
-## Funzionalità principali
-
-- Portfolio dinamico basato su dati JSON
-- Filtri per categoria dei progetti
-- Ricerca testuale
-- Gestione stati UI (loading / empty / error)
-- Anteprima CV in modal (Google Drive embed)
-- Layout responsive e mobile-first
-- Footer sticky su tutte le pagine
 
 ---
 
-## Obiettivo del progetto
+## Main Features
 
-Il portfolio è pensato come strumento di presentazione professionale per candidature come Junior Web Developer.
+- Dynamic portfolio driven by JSON data
+- Project filtering by category
+- Text search
+- UI state handling (loading / empty / error)
+- CV preview in a modal (Google Drive embed)
+- Responsive, mobile-first layout
+- Sticky footer on every page
 
 ---
 
-## Curriculum
-Il curriculum è consultabile direttamente dal sito tramite anteprima in modal o download PDF.
+## Purpose
+
+This portfolio is meant as a professional showcase for Junior Web Developer applications.
 
 ---
 
-## Autore
+## Résumé
+The résumé can be viewed directly on the website, either as a preview in a modal or as a PDF download.
+
+---
+
+## Author
 **Simone Sabatino Di Sciullo**
 
 Portfolio: https://simonesbds.github.io/my-portfolio/
 
 ---
 
-... Progetto in continua evoluzione ...
+*Work in progress — this project keeps evolving.*
+
+---
+
+## License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.
