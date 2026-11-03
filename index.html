@@ -1,35 +1,40 @@
 <!DOCTYPE html>
-<html lang="it" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simone — Junior Web Developer</title>
+    <title>Simone Sabatino Di Sciullo — Junior Web Developer</title>
     <meta
       name="description"
-      content="Portfolio di Simone, Junior Web Developer. Progetti front-end in HTML, CSS, JavaScript."
+      content="Portfolio of Simone Sabatino Di Sciullo, junior web developer from Italy. Front-end projects in HTML, CSS and JavaScript."
     />
+
+    <!-- Runs before anything is drawn: tells the CSS that JavaScript is on,
+         so the entrance animations can safely hide elements at first. -->
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400..600;1,400..600&display=swap"
+    />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="./css/global.css" />
-    <link rel="stylesheet" href="./css/home.css" />
   </head>
 
-  <body>
-    <!-- Navbar -->
-    <nav
-      class="navbar navbar-expand-lg bg-glass border-bottom border-light border-opacity-10 sticky-top"
-    >
+  <body id="top">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-md site-nav fixed-top" id="siteNav">
       <div class="container py-2">
-        <a
-          class="navbar-brand d-flex align-items-center gap-2 fw-bold"
-          href="./index.html"
-          aria-label="Vai alla Home"
-        >
-          <span class="brand-mark">S</span>
-          <span>Simone</span>
-        </a>
+        <a class="brand" href="#top">Simone Sabatino Di Sciullo</a>
 
         <button
           class="navbar-toggler"
@@ -38,212 +43,169 @@
           data-bs-target="#navMain"
           aria-controls="navMain"
           aria-expanded="false"
-          aria-label="Apri menu"
+          aria-label="Open menu"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navMain">
-          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <ul class="navbar-nav ms-auto align-items-md-center gap-md-3">
             <li class="nav-item">
-              <a class="nav-link active" href="./index.html">Home</a>
+              <a class="nav-link" href="#work">Work</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./projects.html">Progetti</a>
+              <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./contact.html">Contatti</a>
-            </li>
-            <li class="nav-item ms-lg-2">
-              <a class="btn btn-outline-light btn-sm" href="./projects.html"
-                >Guarda i progetti</a
-              >
+              <a class="nav-link" href="#contact">Contact</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <main class="flex-grow-1">
-      <!-- Hero -->
-      <header class="py-5">
-        <div class="container">
-          <div class="row g-4 align-items-start">
-            <div class="col-lg-7">
-              <span
-                class="badge rounded-pill text-bg-primary-subtle border border-primary border-opacity-25 mb-3 px-3 py-2"
-              >
-                Junior Web Developer • JavaScript • UI • Logica applicativa
-              </span>
+    <main>
+      <!-- ============ HERO ============ -->
+      <header class="hero" id="intro">
+        <div class="container position-relative">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-8">
+              <p class="eyebrow mb-4 reveal">Hi, I'm Simone · Junior Web Developer</p>
 
-              <h1 class="display-5 fw-bold lh-sm">
-                Trasformo idee in interfacce chiare, funzionali e ben
-                strutturate.
+              <h1 class="display-title mb-4 reveal" style="--delay: 0.1s">
+                I like making the web feel <em>alive</em>.
               </h1>
 
-              <p class="lead text-secondary mt-3">
-                Studio e costruisco progetti reali per allenare logica,
-                organizzazione del codice e qualità dell’esperienza utente. Mi
-                piace capire a fondo come funzionano le cose, non solo farle
-                “funzionare”.
+              <p class="lead-text mb-3 reveal" style="--delay: 0.2s">
+                Smooth transitions, things that react when you scroll, little
+                details that make you want to keep clicking. That's the part of
+                front-end I love most.
+              </p>
+              <p class="lead-text mb-5 reveal" style="--delay: 0.25s">
+                And I don't stop at "it works": I want to understand
+                <em>why</em> it works. Right now I'm learning the MERN stack,
+                one project at a time.
               </p>
 
-              <div class="d-flex flex-wrap gap-2 mt-4">
-                <a class="btn btn-primary btn-lg" href="./projects.html"
-                  >Esplora i progetti</a
-                >
-                <a class="btn btn-outline-light btn-lg" href="./contact.html"
-                  >Contattami</a
-                >
+              <div class="d-flex flex-wrap gap-3 mb-5 reveal" style="--delay: 0.35s">
+                <a class="btn btn-accent" href="#work">See what I've built</a>
+                <a class="btn btn-ghost" href="#contact">Say hi</a>
               </div>
 
-              <div class="row g-3 mt-4">
-                <div class="col-12 col-md-4">
-                  <div
-                    class="card bg-panel border border-light border-opacity-10"
-                  >
-                    <div class="card-body">
-                      <div class="h4 fw-black mb-0">
-                        <span id="projectsCount">—</span>
-                      </div>
-                      <div class="text-secondary">
-                        Progetti reali sviluppati
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-4">
-                  <div
-                    class="card bg-panel border border-light border-opacity-10"
-                  >
-                    <div class="card-body">
-                      <div class="h4 fw-black mb-0">JS</div>
-                      <div class="text-secondary">
-                        Logica, stato, interazioni
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-4">
-                  <div
-                    class="card bg-panel border border-light border-opacity-10"
-                  >
-                    <div class="card-body">
-                      <div class="h4 fw-black mb-0">Clean</div>
-                      <div class="text-secondary">
-                        Codice ordinato e leggibile
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <p class="status mb-0 reveal" style="--delay: 0.45s">
+                <span class="status-dot" aria-hidden="true"></span>
+                Open to junior roles · Remote or hybrid · Italy &amp; EU
+              </p>
             </div>
 
-            <!-- Profile -->
-            <div class="col-lg-5">
-              <div
-                class="card bg-panel shadow-soft border border-light border-opacity-10"
-              >
-                <div class="card-body p-4">
-                  <div class="d-flex align-items-center gap-3">
-                    <div class="avatar-circle">S</div>
-                    <div>
-                      <div class="h5 mb-0 fw-bold">Simone</div>
-                      <div class="text-secondary">Junior Web Developer</div>
-                    </div>
-                  </div>
-
-                  <p class="text-secondary mt-3 mb-0">
-                    Mi piace studiare in profondità, ragionare sulle soluzioni e
-                    costruire progetti solidi. Cerco un ambiente dove crescere
-                    davvero come sviluppatore, confrontarmi e migliorare ogni
-                    giorno.
-                  </p>
-
-                  <div class="d-flex flex-wrap gap-2 mt-3">
-                    <span
-                      class="badge text-bg-dark border border-light border-opacity-10"
-                      >HTML</span
-                    >
-                    <span
-                      class="badge text-bg-dark border border-light border-opacity-10"
-                      >CSS</span
-                    >
-                    <span
-                      class="badge text-bg-dark border border-light border-opacity-10"
-                      >JavaScript</span
-                    >
-                    <span
-                      class="badge text-bg-dark border border-light border-opacity-10"
-                      >Bootstrap</span
-                    >
-                  </div>
-
-                  <div class="d-flex flex-wrap gap-3 mt-3">
-                    <a
-                      class="link-soft"
-                      target="_blank"
-                      href="https://github.com/simonesbds"
-                      >GitHub</a
-                    >
-                    <a class="link-soft" href="#">LinkedIn</a>
-                    <a class="link-soft" href="./contact.html">Email</a>
-                  </div>
-                </div>
+            <div class="col-lg-4 d-none d-lg-block">
+              <!-- TODO: replace the initials with your photo:
+                   <img src="./assets/img/me.webp" alt="Portrait of Simone" /> -->
+              <div class="portrait reveal reveal-scale" style="--delay: 0.3s">
+                <span class="portrait-initials" aria-hidden="true">SD</span>
               </div>
             </div>
           </div>
         </div>
+
+        <a class="scroll-hint" href="#work" aria-label="Scroll to my work">
+          <span></span>
+        </a>
       </header>
 
-      <!-- First Section -->
-      <section class="py-4">
+      <!-- ============ WORK ============ -->
+      <section class="section" id="work">
         <div class="container">
-          <div class="mb-3">
-            <h2 class="h3 fw-bold mb-1">Come lavoro</h2>
-            <p class="text-secondary mb-0">
-              Metodo, chiarezza e miglioramento continuo.
+          <div class="mb-5">
+            <p class="eyebrow mb-2 reveal">Work</p>
+            <h2 class="section-title mb-3 reveal" style="--delay: 0.1s">
+              Things I've <em>built</em>
+            </h2>
+            <p class="lead-text mb-0 reveal" style="--delay: 0.2s">
+              Small projects, each one built to really learn something. Open
+              the demos, play with them, have a look at the code.
             </p>
           </div>
 
-          <div class="row g-3">
-            <div class="col-lg-4">
-              <div
-                class="card bg-panel border border-light border-opacity-10 h-100"
-              >
-                <div class="card-body">
-                  <h3 class="h5 fw-bold">Interfacce chiare e accessibili</h3>
-                  <p class="text-secondary mb-0">
-                    Layout ordinati, attenzione alla leggibilità, mobile-first e
-                    componenti semplici da mantenere.
-                  </p>
-                </div>
-              </div>
+          <!-- Toolbar -->
+          <div
+            class="d-flex flex-column flex-md-row gap-3 align-items-md-center justify-content-between mb-5 reveal"
+            style="--delay: 0.25s"
+          >
+            <div class="d-flex flex-wrap gap-2" role="group" aria-label="Filter projects">
+              <button class="btn btn-filter active" type="button" data-filter="all">All</button>
+              <button class="btn btn-filter" type="button" data-filter="js">JavaScript</button>
+              <button class="btn btn-filter" type="button" data-filter="api">API</button>
+              <button class="btn btn-filter" type="button" data-filter="ui">UI</button>
             </div>
-            <div class="col-lg-4">
-              <div
-                class="card bg-panel border border-light border-opacity-10 h-100"
-              >
-                <div class="card-body">
-                  <h3 class="h5 fw-bold">JavaScript ragionato</h3>
-                  <p class="text-secondary mb-0">
-                    Preferisco codice leggibile, funzioni piccole e logica ben
-                    separata. Ogni feature deve essere comprensibile e
-                    migliorabile nel tempo.
-                  </p>
-                </div>
-              </div>
+
+            <div style="max-width: 320px" class="w-100">
+              <label class="visually-hidden" for="q">Search projects</label>
+              <input
+                id="q"
+                class="form-control"
+                type="search"
+                placeholder="Search projects…"
+              />
             </div>
+          </div>
+
+          <!-- Grid (filled by js/projects.js) -->
+          <div class="row g-4" id="projectsGrid" aria-live="polite"></div>
+
+          <!-- Empty / loading / error state -->
+          <p class="text-muted-soft mt-4" id="emptyState" hidden></p>
+        </div>
+      </section>
+
+      <!-- ============ ABOUT ============ -->
+      <section class="section" id="about">
+        <div class="container">
+          <div class="row g-5">
             <div class="col-lg-4">
-              <div
-                class="card bg-panel border border-light border-opacity-10 h-100"
-              >
-                <div class="card-body">
-                  <h3 class="h5 fw-bold">Progetti curati e documentati</h3>
-                  <p class="text-secondary mb-0">
-                    README chiari, struttura ordinata, demo funzionanti e
-                    attenzione ai dettagli.
-                  </p>
+              <p class="eyebrow mb-2 reveal">About</p>
+              <h2 class="section-title reveal" style="--delay: 0.1s">
+                The honest <em>version</em>
+              </h2>
+            </div>
+
+            <div class="col-lg-7 offset-lg-1">
+              <p class="lead-text mb-4 reveal">
+                I'm a junior, and I know I still have a lot to learn. But when
+                something doesn't click, I don't just copy a fix and move on: I
+                dig into it until it makes sense. Every project here started
+                exactly like that.
+              </p>
+              <p class="lead-text mb-4 reveal" style="--delay: 0.1s">
+                What gets me excited is the user experience. An interface can
+                work perfectly and still feel stiff. I want the ones I build to
+                feel fluid, and to be a bit fun to use.
+              </p>
+              <p class="lead-text mb-5 reveal" style="--delay: 0.2s">
+                What I'm looking for: a team where I can ask questions, get real
+                feedback on my code and grow. I'll bring curiosity and a lot of
+                willingness to learn.
+              </p>
+
+              <div class="row g-4">
+                <div class="col-sm-6 reveal" style="--delay: 0.1s">
+                  <h3 class="eyebrow mb-3">What I work with</h3>
+                  <div class="d-flex flex-wrap gap-2">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript (ES6+)</span>
+                    <span class="tag">Bootstrap</span>
+                    <span class="tag">Git &amp; GitHub</span>
+                  </div>
+                </div>
+                <div class="col-sm-6 reveal" style="--delay: 0.2s">
+                  <h3 class="eyebrow mb-3">What I'm learning now</h3>
+                  <div class="d-flex flex-wrap gap-2">
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Express</span>
+                    <span class="tag">MongoDB</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -251,44 +213,184 @@
         </div>
       </section>
 
-      <!-- Second Section -->
-      <section class="py-5">
+      <!-- ============ CONTACT ============ -->
+      <section class="section" id="contact">
         <div class="container">
-          <div class="card bg-panel border border-light border-opacity-10">
-            <div
-              class="card-body p-4 p-lg-5 d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3"
-            >
-              <div>
-                <h2 class="h4 fw-bold mb-1">
-                  Dai un’occhiata ai miei progetti
-                </h2>
-                <p class="text-secondary mb-0">
-                  Ogni progetto racconta come ragiono, come organizzo il codice
-                  e come risolvo i problemi.
-                </p>
+          <div class="mb-5">
+            <p class="eyebrow mb-2 reveal">Contact</p>
+            <h2 class="section-title mb-3 reveal" style="--delay: 0.1s">
+              Let's <em>talk</em>.
+            </h2>
+            <p class="lead-text mb-0 reveal" style="--delay: 0.2s">
+              A junior role, a project, or you just want to chat about code?
+              Write me here, I read everything.
+            </p>
+          </div>
+
+          <div class="row g-4 align-items-start">
+            <!-- FORM -->
+            <div class="col-lg-7 reveal" style="--delay: 0.1s">
+              <div class="panel p-4 p-md-5">
+                <form
+                  action="https://formspree.io/f/mlgdqqjv"
+                  method="POST"
+                  class="vstack gap-4"
+                >
+                  <!-- Honeypot field against spam bots -->
+                  <input type="text" name="_gotcha" style="display: none" />
+
+                  <div class="row g-4">
+                    <div class="col-md-6">
+                      <label class="form-label" for="name">Name</label>
+                      <input
+                        class="form-control"
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Your name"
+                        autocomplete="name"
+                        required
+                      />
+                    </div>
+
+                    <div class="col-md-6">
+                      <label class="form-label" for="email">Email</label>
+                      <input
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="name@company.com"
+                        autocomplete="email"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="form-label" for="msg">Message</label>
+                    <textarea
+                      class="form-control"
+                      id="msg"
+                      name="msg"
+                      rows="6"
+                      placeholder="Hi Simone, I'm reaching out about…"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <button class="btn btn-accent align-self-start" type="submit">
+                    Send message
+                  </button>
+                </form>
               </div>
-              <a class="btn btn-primary btn-lg" href="./projects.html"
-                >Apri Progetti</a
-              >
             </div>
+
+            <!-- SIDEBAR -->
+            <aside class="col-lg-5 reveal" style="--delay: 0.2s">
+              <div class="panel p-4 p-md-5 vstack gap-4">
+                <div>
+                  <h3 class="eyebrow mb-3">Availability</h3>
+                  <p class="status mb-2">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    Open to junior roles
+                  </p>
+                  <p class="text-muted-soft mb-0">
+                    Full-time or part-time · Remote or hybrid · Italy &amp; EU
+                  </p>
+                </div>
+
+                <hr class="divider my-0" />
+
+                <div>
+                  <h3 class="eyebrow mb-3">Find me elsewhere</h3>
+                  <div class="d-flex flex-wrap gap-2">
+                    <a
+                      class="btn btn-ghost btn-sm"
+                      href="https://www.linkedin.com/in/simone-sabatino-di-sciullo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn ↗</a
+                    >
+                    <a
+                      class="btn btn-ghost btn-sm"
+                      href="https://github.com/simonesbds"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >GitHub ↗</a
+                    >
+                    <button
+                      class="btn btn-ghost btn-sm"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#cvModal"
+                    >
+                      View CV
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="py-4 border-top border-light border-opacity-10">
+    <footer class="site-footer">
       <div class="container d-flex flex-wrap justify-content-between gap-3">
-        <div class="text-secondary">
-          © <span id="year">2025</span> Simone — Portfolio
-        </div>
-        <div class="d-flex gap-3">
-          <a class="link-soft" href="./projects.html">Progetti</a>
-          <a class="link-soft" href="./contact.html">Contatti</a>
-        </div>
+        <span>© <span class="js-year">2026</span> Simone Sabatino Di Sciullo</span>
+        <a href="#top">Back to top ↑</a>
       </div>
     </footer>
 
+    <!-- CV MODAL -->
+    <div
+      class="modal fade"
+      id="cvModal"
+      tabindex="-1"
+      aria-labelledby="cvModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h5 font-serif" id="cvModalLabel">Résumé</h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body p-0">
+            <iframe
+              class="cv-frame"
+              title="Résumé of Simone Sabatino Di Sciullo"
+              src="https://drive.google.com/file/d/1gKrH09wGnL_L7KwL7b-ktuUSuMhqhQsl/preview"
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <div class="modal-footer">
+            <a
+              class="btn btn-accent btn-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://drive.google.com/uc?export=download&id=1gKrH09wGnL_L7KwL7b-ktuUSuMhqhQsl"
+            >
+              Download PDF
+            </a>
+            <button type="button" class="btn btn-ghost btn-sm" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/home.js" defer></script>
+    <script src="./js/main.js" defer></script>
+    <script src="./js/projects.js" defer></script>
   </body>
 </html>

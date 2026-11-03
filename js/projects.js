@@ -3,51 +3,147 @@ const emptyState = document.getElementById("emptyState");
 const searchInput = document.getElementById("q");
 const btnFilter = document.querySelectorAll(".btn-filter");
 
-let loading = false;
-let error = null;
+const CATEGORY_LABELS = {
+  js: "JavaScript",
+  api: "API",
+  ui: "UI",
+};
 
 let allProjects = [];
 let activeFilter = "all";
 let searchQuery = "";
 let searchTimer = null;
 
+// HELPERS
+function isFilledString(value) {
+  return typeof value === "string" && value.trim() !== "";
+}
+
+function showMessage(text) {
+  projectGrid.hidden = true;
+  emptyState.hidden = false;
+  emptyState.textContent = text;
+}
+
 // LOADING PROJECTS
 async function loadProjects() {
   btnFilter.forEach((btn) => (btn.disabled = true));
   searchInput.disabled = true;
-
-  loading = true;
-  emptyState.hidden = false;
-  projectGrid.hidden = true;
-  emptyState.textContent = "Caricamento...";
+  showMessage("Loading projects…");
 
   try {
     const response = await fetch("./data/projects.json");
     if (!response.ok) {
-      throw new Error(`Error ${response.status}. Riprova più tardi`);
+      throw new Error(`Error ${response.status}. Please try again later.`);
     }
 
     const data = await response.json();
     if (!Array.isArray(data)) {
-      throw new Error("Formato JSON non valido: atteso un array di progetti");
+      throw new Error("Invalid JSON format: expected an array of projects.");
     }
 
     allProjects = data;
-
-    projectGrid.hidden = false;
-    emptyState.hidden = true;
-
     applyFilters();
   } catch (e) {
-    error = e;
-    emptyState.hidden = false;
-    projectGrid.hidden = true;
-    emptyState.textContent = e.message;
+    showMessage(e.message);
   } finally {
-    loading = false;
     btnFilter.forEach((btn) => (btn.disabled = false));
     searchInput.disabled = false;
   }
+}
+
+// CARD
+function createProjectCard(project) {
+  const col = document.createElement("div");
+  col.className = "col-md-6";
+
+  const card = document.createElement("article");
+  card.className = "panel project-card d-flex flex-column";
+  col.append(card);
+
+  // Screenshot
+  if (isFilledString(project.image)) {
+    const frame = document.createElement("div");
+    frame.className = "browser-frame mb-4";
+
+    const bar = document.createElement("div");
+    bar.className = "browser-bar";
+    bar.setAttribute("aria-hidden", "true");
+    bar.append(
+      document.createElement("span"),
+      document.createElement("span"),
+      document.createElement("span")
+    );
+
+    const img = document.createElement("img");
+    img.src = project.image;
+    img.alt = `Screenshot of ${project.title || "project"}`;
+    img.loading = "lazy";
+
+    frame.append(bar, img);
+    card.append(frame);
+  }
+
+  const body = document.createElement("div");
+  body.className = "px-2 pb-2 d-flex flex-column flex-grow-1";
+  card.append(body);
+
+  // Category + title
+  const category = document.createElement("p");
+  category.className = "eyebrow mb-2";
+  category.textContent = CATEGORY_LABELS[project.category] || "Project";
+
+  const title = document.createElement("h2");
+  title.className = "project-title mb-3";
+  title.textContent = project.title || "Untitled project";
+
+  const description = document.createElement("p");
+  description.className = "text-muted-soft mb-4";
+  description.textContent = project.description || "";
+
+  body.append(category, title, description);
+
+  // Tags
+  if (Array.isArray(project.tags) && project.tags.length > 0) {
+    const tagsRow = document.createElement("div");
+    tagsRow.className = "d-flex flex-wrap gap-2 mb-4";
+
+    project.tags.forEach((tag) => {
+      if (!isFilledString(tag)) return;
+
+      const tagEl = document.createElement("span");
+      tagEl.className = "tag";
+      tagEl.textContent = tag.trim();
+      tagsRow.append(tagEl);
+    });
+
+    if (tagsRow.children.length > 0) body.append(tagsRow);
+  }
+
+  // Links (pushed to the bottom of the card with mt-auto)
+  const links = document.createElement("div");
+  links.className = "d-flex gap-4 mt-auto";
+
+  const linkData = [
+    ["Live demo ↗", project.demoUrl],
+    ["Code ↗", project.repoUrl],
+  ];
+
+  linkData.forEach(([label, url]) => {
+    if (!isFilledString(url)) return;
+
+    const link = document.createElement("a");
+    link.className = "link-arrow";
+    link.textContent = label;
+    link.href = url.trim();
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    links.append(link);
+  });
+
+  if (links.children.length > 0) body.append(links);
+
+  return col;
 }
 
 // RENDER
@@ -55,112 +151,25 @@ function renderProjects(list) {
   projectGrid.innerHTML = "";
 
   if (list.length === 0) {
-    projectGrid.hidden = true;
-    emptyState.hidden = false;
-    emptyState.textContent = "Nessun risultato";
+    showMessage("No projects match your search. Try another filter or keyword.");
     return;
   }
 
   emptyState.hidden = true;
   projectGrid.hidden = false;
 
-  list.forEach((project) => {
-    // COL
-    const divContainer = document.createElement("div");
-    divContainer.className = "col-md-6 col-lg-4";
-    projectGrid.append(divContainer);
+  list.forEach((project, index) => {
+    const card = createProjectCard(project);
 
-    // CARD
-    const article = document.createElement("article");
-    article.className =
-      "card h-100 bg-panel border border-light border-opacity-10";
-    divContainer.append(article);
+    // Entrance animation: each card arrives 0.12s after the previous one
+    card.classList.add("reveal");
+    card.style.setProperty("--delay", `${index * 0.12}s`);
 
-    // BODY + HEADER
-    const cardBody = document.createElement("div");
-    cardBody.className = "card-body";
-
-    const bodyHeader = document.createElement("div");
-    bodyHeader.className =
-      "d-flex align-items-start justify-content-between gap-2";
-    cardBody.append(bodyHeader);
-
-    // FOOTER
-    const cardFooter = document.createElement("div");
-    cardFooter.className =
-      "card-footer bg-transparent border-top border-light border-opacity-10 d-flex gap-2";
-
-    article.append(cardBody, cardFooter);
-
-    // TITLE
-    const cardTitle = document.createElement("h2");
-    cardTitle.className = "h5 fw-bold mb-0";
-    cardTitle.textContent = project.title || "Titolo mancante";
-
-    // BADGE CATEGORY
-    const badge = document.createElement("span");
-    badge.className =
-      "badge text-bg-primary-subtle border border-primary border-opacity-25";
-
-    if (project.category === "api") badge.textContent = "API";
-    else if (project.category === "js") badge.textContent = "JavaScript";
-    else badge.textContent = "UI";
-
-    bodyHeader.append(cardTitle, badge);
-
-    // DESCRIPTION
-    const bodyDescription = document.createElement("p");
-    bodyDescription.className = "text-secondary mt-3 mb-0";
-    bodyDescription.textContent = project.description || "Descrizione mancante";
-    cardBody.append(bodyDescription);
-
-    // TAGS
-    if (Array.isArray(project.tags) && project.tags.length > 0) {
-      const tagsRow = document.createElement("div");
-      tagsRow.className = "d-flex flex-wrap gap-2 mt-3";
-
-      project.tags.forEach((tag) => {
-        if (typeof tag !== "string") return;
-        if (tag.trim() === "") return;
-
-        const tagBadge = document.createElement("span");
-        tagBadge.className =
-          "badge text-bg-dark border border-light border-opacity-10";
-        tagBadge.textContent = tag.trim();
-        tagsRow.append(tagBadge);
-      });
-
-      if (tagsRow.children.length > 0) cardBody.append(tagsRow);
-    }
-
-    // DEMO LINK
-    let hasAnyLink = false;
-
-    if (typeof project.demoUrl === "string" && project.demoUrl.trim() !== "") {
-      const demoLink = document.createElement("a");
-      demoLink.className = "btn btn-outline-light btn-sm";
-      demoLink.textContent = "Demo";
-      demoLink.href = project.demoUrl.trim();
-      demoLink.target = "_blank";
-      demoLink.rel = "noopener noreferrer";
-      cardFooter.append(demoLink);
-      hasAnyLink = true;
-    }
-
-    // REPO LINK
-    if (typeof project.repoUrl === "string" && project.repoUrl.trim() !== "") {
-      const repoLink = document.createElement("a");
-      repoLink.className = "btn btn-light btn-sm";
-      repoLink.textContent = "Repo";
-      repoLink.href = project.repoUrl.trim();
-      repoLink.target = "_blank";
-      repoLink.rel = "noopener noreferrer";
-      cardFooter.append(repoLink);
-      hasAnyLink = true;
-    }
-
-    if (!hasAnyLink) cardFooter.hidden = true;
+    projectGrid.append(card);
   });
+
+  // revealOnScroll comes from main.js
+  revealOnScroll(projectGrid.querySelectorAll(".reveal"));
 }
 
 // APPLY FILTERS
@@ -197,11 +206,7 @@ btnFilter.forEach((btn) => {
   });
 });
 
-searchInput.addEventListener("input", () => {
-  searchQuery = searchInput.value.trim().toLowerCase();
-  applyFilters();
-});
-
+// SEARCH (debounced: waits 150ms after the last keystroke)
 searchInput.addEventListener("input", () => {
   clearTimeout(searchTimer);
   searchTimer = setTimeout(() => {

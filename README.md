@@ -1,7 +1,7 @@
 # Simone — Junior Web Developer Portfolio
 
 My personal portfolio repository.
-It brings together a selection of real front-end applications, designed to showcase technical skills, attention to UI/UX and care for detail.
+A single-page, scroll-based portfolio with entrance animations, built to showcase my front-end projects and my focus on smooth, engaging user experiences.
 
 ## Live website
 https://simonesbds.github.io/my-portfolio/
@@ -22,17 +22,16 @@ https://simonesbds.github.io/my-portfolio/
 ## Project Structure
 ```
 /
-├── index.html
-├── projects.html
-├── contact.html
+├── index.html          # the whole site (one page)
+├── projects.html       # redirect to #work (keeps old links working)
+├── contact.html        # redirect to #contact
 ├── css/
-│ ├── global.css
-│ ├── home.css
-│ ├── projects.css
-│ └── contact.css
+│ └── global.css        # design tokens, components, animations
 ├── js/
-│ ├── home.js
-│ └── projects.js
+│ ├── main.js           # scroll animations, navbar, footer year
+│ └── projects.js       # loads, filters and renders projects
+├── assets/
+│ └── img/projects/     # project screenshots (WebP)
 ├── data/
 │ └── projects.json
 ├── LICENSE
@@ -43,13 +42,15 @@ https://simonesbds.github.io/my-portfolio/
 
 ## Main Features
 
-- Dynamic portfolio driven by JSON data
-- Project filtering by category
-- Text search
+- Single-page layout with smooth scrolling between sections
+- Entrance animations on scroll (IntersectionObserver + CSS transitions)
+- Navbar that changes on scroll and highlights the current section
+- Projects loaded dynamically from a JSON file
+- Project filtering by category and debounced text search
 - UI state handling (loading / empty / error)
 - CV preview in a modal (Google Drive embed)
 - Responsive, mobile-first layout
-- Sticky footer on every page
+- Respects the user's "reduce motion" accessibility setting
 
 ---
 
